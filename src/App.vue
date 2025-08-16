@@ -3,6 +3,7 @@
 		<h1 class="title">Youtube Application</h1>
 
 		<SearchBar @termChange="onTermChange" />
+		<VideoList :videos="videos" />
 
 		<!-- Yöntem 2: Direkt inline
 <SearchBar @termChange="(term) => console.log('Search term changed:', term)" /> -->
@@ -11,11 +12,18 @@
 
 <script>
 import SearchBar from "./components/SearchBar.vue";
+import VideoList from "./components/VideoList.vue";
 import axios from "axios";
 export default {
 	name: "App",
 	components: {
 		SearchBar,
+		VideoList,
+	},
+	data() {
+		return {
+			videos: [],
+		};
 	},
 	methods: {
 		onTermChange(searchTerm) {
@@ -29,7 +37,8 @@ export default {
 					},
 				})
 				.then((response) => {
-					console.log(response);
+					// console.log(response);
+					this.videos = response.data.items;
 				})
 				.catch((error) => {
 					console.log(error);
