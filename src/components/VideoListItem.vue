@@ -1,7 +1,16 @@
 <template>
-	<div></div>
+	<li><img :src="imageUrl" /></li>
 </template>
 
-<script></script>
+<script>
+export default {
+	props: ["video"],
+	computed: {
+		imageUrl() {
+			return this.video.snippet.thumbnails.medium.url;
+		},
+	},
+};
+</script>
 
 <style></style>
