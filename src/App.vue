@@ -49,10 +49,12 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@200..700&display=swap");
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: "Mozilla Text", sans-serif;
 }
 .container {
 	max-width: 1200px;

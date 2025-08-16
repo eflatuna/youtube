@@ -25,6 +25,7 @@ export default {
 </script>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Mozilla+Text&display=swap");
 .search-form {
 	display: flex;
 	margin: 20px 0px;
@@ -38,10 +39,11 @@ export default {
 }
 
 .search-btn {
+	font-family: "Mozilla Text", sans-serif;
 	border: none;
-	background: green;
-	color: white;
-	font-size: 18px;
+	background: red;
+	color: black;
+	font-size: 16px;
 	border-radius: 20px;
 	cursor: pointer;
 	width: 15%;
