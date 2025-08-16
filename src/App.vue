@@ -1,7 +1,7 @@
 <template>
 	<div class="container">
 		<h1 class="title">Youtube Application</h1>
-		<SearchBar />
+		<SearchBar @termChange="onTermChange" />
 	</div>
 </template>
 
@@ -11,6 +11,11 @@ export default {
 	name: "App",
 	components: {
 		SearchBar,
+	},
+	methods: {
+		onTermChange(term) {
+			console.log("Search term changed:", term);
+		},
 	},
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-	<form class="search-form" @submit-prevent="handleSubmit">
+	<form class="search-form" @submit.prevent="handleSubmit">
 		<input type="text" class="search-input" />
 		<button class="search-btn">Search</button>
 	</form>
@@ -7,6 +7,7 @@
 
 <script>
 export default {
+	emits: ["termChange"],
 	data() {
 		return {
 			searchTerm: "",
@@ -15,7 +16,7 @@ export default {
 
 	methods: {
 		handleSubmit() {
-			this.$emit("search", this.searchTerm);
+			this.$emit("termChange", this.searchTerm);
 		},
 	},
 };
