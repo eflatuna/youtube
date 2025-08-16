@@ -1,7 +1,11 @@
 <template>
 	<div class="container">
 		<h1 class="title">Youtube Application</h1>
+
 		<SearchBar @termChange="onTermChange" />
+
+		<!-- Yöntem 2: Direkt inline
+<SearchBar @termChange="(term) => console.log('Search term changed:', term)" /> -->
 	</div>
 </template>
 
