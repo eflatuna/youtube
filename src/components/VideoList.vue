@@ -1,7 +1,11 @@
 <template>
-	<div></div>
+	<div><ul></ul></div>
 </template>
 
-<script></script>
+<script>
+export default {
+	props: ["videos"],
+};
+</script>
 
 <style></style>
