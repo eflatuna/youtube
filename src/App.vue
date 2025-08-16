@@ -1,5 +1,7 @@
 <template>
-	<div class="container"></div>
+	<div class="container">
+		<h1>Youtube Application</h1>
+	</div>
 </template>
 
 <script>
@@ -9,4 +11,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.container {
+	max-width: 1200px;
+	width: 100%;
+	margin: 50px auto;
+}
+</style>
