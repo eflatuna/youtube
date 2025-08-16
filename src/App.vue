@@ -5,7 +5,9 @@
 		<SearchBar @termChange="onTermChange" />
 
 		<!-- Seçim yapılmadan önce VideoDetail render olmasın -->
-		<VideoDetail v-if="selectedVideo" :video="selectedVideo" />
+		<div ref="detailTop">
+			<VideoDetail v-if="selectedVideo" :video="selectedVideo" />
+		</div>
 
 		<div>
 			<!-- DİKKAT: videos (çoğul) ve event handler parantezsiz -->
@@ -15,6 +17,7 @@
 </template>
 
 <script>
+import { nextTick } from "vue";
 import SearchBar from "./components/SearchBar.vue";
 import VideoList from "./components/VideoList.vue";
 import VideoDetail from "./components/VideoDetail.vue";
@@ -41,7 +44,7 @@ export default {
 							part: "snippet",
 							type: "video",
 							maxResults: 10,
-							key: "AIzaSyBEvtw9QOno06ZSag332l4OnhtEvDv7rRs", // (Not: API key'i env'e taşıman iyi olur)
+							key: "AIzaSyBEvtw9QOno06ZSag332l4OnhtEvDv7rRs",
 							q: searchTerm,
 						},
 					}
@@ -57,8 +60,15 @@ export default {
 			}
 		},
 
-		onVideoSelect(video) {
+		async onVideoSelect(video) {
 			this.selectedVideo = video;
+			// VideoDetail DOM’a yerleşsin:
+			await nextTick();
+			// Sonra yukarı kaydır:
+			this.$refs.detailTop?.scrollIntoView({
+				behavior: "smooth",
+				block: "start",
+			});
 		},
 	},
 };
@@ -71,6 +81,9 @@ export default {
 	padding: 0;
 	box-sizing: border-box;
 	font-family: "Mozilla Text", sans-serif;
+}
+html {
+	scroll-behavior: smooth;
 }
 .container {
 	max-width: 1200px;
