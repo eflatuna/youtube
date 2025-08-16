@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<ul>
+		<ul class="video-list">
 			<VideoListItem
 				v-for="video in videos"
 				:key="video.etag"
@@ -20,4 +20,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.video-list {
+	list-style-type: none;
+}
+</style>
