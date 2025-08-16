@@ -2,6 +2,7 @@
 	<div>
 		<ul class="video-list">
 			<VideoListItem
+				@videoSelect="onVideoSelect()"
 				v-for="video in videos"
 				:key="video.etag"
 				:video="video"
@@ -14,8 +15,14 @@
 import VideoListItem from "./VideoListItem.vue";
 export default {
 	props: ["videos"],
+
 	components: {
 		VideoListItem,
+	},
+	methods: {
+		onVideoSelect(video) {
+			this.$emit("videoSelect", video);
+		},
 	},
 };
 </script>

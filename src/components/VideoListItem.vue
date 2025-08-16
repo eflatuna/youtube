@@ -8,6 +8,7 @@
 <script>
 export default {
 	props: ["video"],
+	emits: ["videoSelect"],
 	computed: {
 		imageUrl() {
 			return this.video.snippet.thumbnails.medium.url;

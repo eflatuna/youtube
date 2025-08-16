@@ -3,7 +3,7 @@
 		<h1 class="title">Youtube Application</h1>
 
 		<SearchBar @termChange="onTermChange" />
-		<VideoList :videos="videos" />
+		<VideoList :videos="videos" @videoSelect="onVideoSelect()" />
 
 		<!-- Yöntem 2: Direkt inline
 <SearchBar @termChange="(term) => console.log('Search term changed:', term)" /> -->
@@ -20,9 +20,11 @@ export default {
 		SearchBar,
 		VideoList,
 	},
+
 	data() {
 		return {
 			videos: [],
+			selectedVideo: null,
 		};
 	},
 	methods: {
@@ -43,6 +45,9 @@ export default {
 				.catch((error) => {
 					console.log(error);
 				});
+		},
+		onVideoSelect(video) {
+			this.selectedVideo = video;
 		},
 	},
 };
