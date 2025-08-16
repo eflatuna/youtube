@@ -11,14 +11,29 @@
 
 <script>
 import SearchBar from "./components/SearchBar.vue";
+import axios from "axios";
 export default {
 	name: "App",
 	components: {
 		SearchBar,
 	},
 	methods: {
-		onTermChange(term) {
-			console.log("Search term changed:", term);
+		onTermChange(searchTerm) {
+			axios
+				.get("https://www.googleapis.com/youtube/v3/search", {
+					params: {
+						part: "snippet",
+						type: "video",
+						key: "AIzaSyBEvtw9QOno06ZSag332l4OnhtEvDv7rRs",
+						q: searchTerm,
+					},
+				})
+				.then((response) => {
+					console.log(response);
+				})
+				.catch((error) => {
+					console.log(error);
+				});
 		},
 	},
 };
