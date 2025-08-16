@@ -1,6 +1,6 @@
 <template>
 	<div class="container">
-		<h1>Youtube Application</h1>
+		<h1 class="title">Youtube Application</h1>
 	</div>
 </template>
 
@@ -16,5 +16,8 @@ export default {
 	max-width: 1200px;
 	width: 100%;
 	margin: 50px auto;
+}
+.title {
+	text-align: center;
 }
 </style>
