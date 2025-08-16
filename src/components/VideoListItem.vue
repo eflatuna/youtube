@@ -1,5 +1,8 @@
 <template>
-	<li><img :src="imageUrl" /></li>
+	<li>
+		<img :src="imageUrl" />
+		<div>{{ video.snippet.title }}</div>
+	</li>
 </template>
 
 <script>
