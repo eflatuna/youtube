@@ -1,13 +1,17 @@
 <template>
 	<div class="container">
 		<h1 class="title">Youtube Application</h1>
+		<SearchBar />
 	</div>
 </template>
 
 <script>
+import SearchBar from "./components/SearchBar.vue";
 export default {
 	name: "App",
-	components: {},
+	components: {
+		SearchBar,
+	},
 };
 </script>
 
