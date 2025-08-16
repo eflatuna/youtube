@@ -2,10 +2,10 @@
 	<div>
 		<ul class="video-list">
 			<VideoListItem
-				@videoSelect="onVideoSelect()"
-				v-for="video in videos"
-				:key="video.etag"
-				:video="video"
+				v-for="v in videos"
+				:key="v.id?.videoId || v.etag"
+				:video="v"
+				@videoSelect="onVideoSelect"
 			/>
 		</ul>
 	</div>
@@ -13,15 +13,16 @@
 
 <script>
 import VideoListItem from "./VideoListItem.vue";
-export default {
-	props: ["videos"],
 
-	components: {
-		VideoListItem,
+export default {
+	props: {
+		videos: { type: Array, required: true },
 	},
+	components: { VideoListItem },
+	emits: ["videoSelect"],
 	methods: {
 		onVideoSelect(video) {
-			this.$emit("videoSelect", video);
+			this.$emit("videoSelect", video); // Üste (App.vue) ilet
 		},
 	},
 };
