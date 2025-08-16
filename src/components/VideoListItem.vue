@@ -25,4 +25,9 @@ export default {
 	border-radius: 30px;
 	margin: 20px;
 }
+
+.video-image {
+	border-radius: 30px 0px 0px 30px;
+	margin-right: 30px;
+}
 </style>
